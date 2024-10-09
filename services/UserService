@@ -1,0 +1,14 @@
+import users from "../src/models/User.js";
+
+class UserService {
+    static async createUser(userData) {
+        try {
+            const newUser = await users.create(userData);
+            return { success: true, message: "Usuário criado." };
+        } catch (error) {
+            throw new Error(error.message); // Lança o erro para ser tratado no controller
+        }
+    }
+}
+
+export default UserService;
